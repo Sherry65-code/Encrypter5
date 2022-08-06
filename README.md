@@ -7,3 +7,5 @@ Works best on KDE Plasma. [Dark]
 It looks like this:-
 
 <img src="https://github.com/Sherry65-code/Encrypter5/blob/main/img.png?raw=true" style="border-radius: 2px;width:50%;">
+
+First run `setup.out` and then run `run.out` to start app.
