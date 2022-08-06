@@ -1,18 +1,54 @@
 # Created by Parambir Singh
 # Open-Source
+from ast import Delete
 from tkinter import Tk, PhotoImage, Text, Button, messagebox
+from os import system,remove
+from pyperclip import copy
+algo = 1
 
 def tell(head, text):
     messagebox.showinfo(f'{head}',f"{text}")
 
 def encrypt():
-    pass
+    global algo
+    textofbox = textbox.get("1.0","end")
+    textofbox = textofbox.replace(" ","_")
+    try:
+        remove("text.algo")
+    except Exception as e:
+        print("Could not remove text.algo")
+    f = open("text.algo","w")
+    f.write(f"{textofbox}")
+    f.close()
+    if algo == 1:
+        system("./encrypter.out")
+    tell("Encrypted","Text Copied to clipboard.")
+    f = open("text.algo","r")
+    txt = f.read()
+    f.close()
+    copy(f"{txt}")
 
 def descrypt():
-    pass
+    global algo
+    textofbox=textbox.get("1.0","end")
+    try:
+        remove("text.algo")
+    except Exception as e:
+        print("Could not remove text.algo")
+    f = open("text.algo","w")
+    f.write(f"{textofbox}")
+    f.close()
+    if algo == 1:
+        system("./decrypter.out")
+    f = open("text.algo","r")
+    txt = f.read()
+    f.close()
+    copy(f"{txt.replace('_',' ')}")
+    tell("Decrypted",f"{txt.replace('_',' ')}")
+
 
 def setcode():
-    pass
+    tell("Listen","Only Algorithm A217 is avaliable for now.")
 
 def about():
     tell("About Us","This is a program that encrypts and descrypts text without use of special characters")
