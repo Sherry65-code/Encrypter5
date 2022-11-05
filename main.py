@@ -1,6 +1,5 @@
 # Created by Parambir Singh
 # Open-Source
-from ast import Delete
 from tkinter import Tk, PhotoImage, Text, Button, messagebox
 from os import system,remove
 from pyperclip import copy
